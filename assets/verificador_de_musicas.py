@@ -1,6 +1,6 @@
 import os
 #essa função def serve para pegar as musicas do diretorio e separar sô as musicas para ultilizar, atenção, ele não faz uma copia, e sim salva uma lista e quando ele quiser pegar um musica para TOCAR ele ele pega na lista o diretorio
-def listar_musicas(caminho_pasta):
+def listar_musicas(caminho_pasta, act=False):
     nomes_arquivos = []
     caminhos_arquivos = []
     extensoes_musicas = ['.mp3', '.wav', '.flac']  # Lista de extensões de arquivos de música
@@ -24,6 +24,9 @@ def listar_musicas(caminho_pasta):
             caminhos_arquivos_refeito = []
             for nd in caminhos_arquivos:
                 caminhos_arquivos_refeito.append(nd.replace('\\', '/'))
+    if act == True:
+        nomes_arquivos = sorted(nomes_arquivos, reverse=True)
+        caminhos_arquivos_refeito = sorted(caminhos_arquivos_refeito, reverse=True)
 
     return nomes_arquivos, caminhos_arquivos_refeito
 
